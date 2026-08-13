@@ -1,0 +1,112 @@
+<Window x:Class="PowerMonitorApp.Tray.PopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PC Power Monitor"
+        Height="360" Width="300"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Topmost="True"
+        WindowStartupLocation="Manual"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <Style x:Key="GhostButton" TargetType="Button">
+            <Setter Property="Background" Value="#FF262626"/>
+            <Setter Property="Foreground" Value="#FFE0E0E0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" CornerRadius="5" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#FF383838"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="#FF1B1B1B" BorderBrush="#FF333333" BorderThickness="1" CornerRadius="10" Padding="18">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="24" ShadowDepth="4" Opacity="0.4" Color="Black"/>
+        </Border.Effect>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                <TextBlock Text="⚡" FontSize="16" Foreground="#FFFFC107" Margin="0,0,6,0"/>
+                <TextBlock Text="PC Power Monitor" FontWeight="Bold" FontSize="14" Foreground="White" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Grid Margin="0,0,0,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Background="#FF232323" CornerRadius="8" Margin="0,0,4,0" Padding="0,10">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🖥" FontSize="14" HorizontalAlignment="Center"/>
+                        <TextBlock Text="CPU" FontSize="10" Foreground="#FF9E9E9E" HorizontalAlignment="Center" Margin="0,4,0,2"/>
+                        <TextBlock x:Name="CpuText" Text="0.0 W" FontSize="13" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Background="#FF232323" CornerRadius="8" Margin="4,0" Padding="0,10">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🎮" FontSize="14" HorizontalAlignment="Center"/>
+                        <TextBlock Text="GPU" FontSize="10" Foreground="#FF9E9E9E" HorizontalAlignment="Center" Margin="0,4,0,2"/>
+                        <TextBlock x:Name="GpuText" Text="0.0 W" FontSize="13" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="2" Background="#FF232323" CornerRadius="8" Margin="4,0,0,0" Padding="0,10">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="⚡" FontSize="14" HorizontalAlignment="Center" Foreground="#FFFFC107"/>
+                        <TextBlock Text="Total" FontSize="10" Foreground="#FF9E9E9E" HorizontalAlignment="Center" Margin="0,4,0,2"/>
+                        <TextBlock x:Name="TotalText" Text="0.0 W" FontSize="13" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Background="#FF16344A" CornerRadius="8" Padding="14,12" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Akumulasi hari ini" Foreground="#FFB0DFFF" FontSize="10"/>
+                        <TextBlock x:Name="KwhText" Text="0.0000 kWh" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,2,0,0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <TextBlock Text="Biaya" Foreground="#FFB0DFFF" FontSize="10" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="CostText" Text="Rp 0" Foreground="#FF4FC3F7" FontSize="16" FontWeight="Bold" Margin="0,2,0,0" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock x:Name="TariffText" Text="Tarif: Rp 0/kWh" Foreground="#FF888888" FontSize="10"/>
+                    <TextBlock x:Name="UpdatedText" Text="Update: -" Foreground="#FF666666" FontSize="9" Margin="0,2,0,0"/>
+                </StackPanel>
+                <Button Grid.Column="1" x:Name="HistoryButton" Content="📊 Riwayat" Style="{StaticResource GhostButton}" Click="HistoryButton_Click"/>
+            </Grid>
+
+            <TextBlock x:Name="EstimateNoteText"
+                       Text="≈ CPU diestimasi dari Load% x TDP (sensor power tidak terbaca)"
+                       Foreground="#FFCC8A00" FontSize="9" TextWrapping="Wrap"
+                       Margin="0,8,0,0" Visibility="Collapsed"/>
+        </StackPanel>
+    </Border>
+</Window>

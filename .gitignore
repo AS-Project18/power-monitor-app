@@ -1,0 +1,17 @@
+# Build output
+bin/
+obj/
+
+# Runtime data (generated on first run, not part of source)
+power_monitor.db
+config.json
+
+# IDE / editor
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+.DS_Store
