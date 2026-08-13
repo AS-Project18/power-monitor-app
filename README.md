@@ -4,7 +4,24 @@ Aplikasi WPF (.NET, C#) yang jalan di background sebagai **system tray icon**
 untuk estimasi konsumsi daya PC (CPU + GPU) dan biaya listriknya, tanpa alat
 tambahan — murni baca sensor internal hardware.
 
-## Cara menjalankan (di Windows, lewat Claude Code atau Visual Studio)
+## Download (buat pemakaian sehari-hari, tanpa perlu install .NET/Visual Studio)
+
+1. Buka halaman **[Releases](../../releases/latest)**, download
+   `power-monitor-app-vX.X.X-win-x64.zip` dari rilis paling baru.
+2. Extract zip-nya ke folder manapun (portable, gak ada installer — bisa
+   dipindah-pindah bebas).
+3. Jalankan `PowerMonitorApp.exe` → Windows akan minta izin Administrator,
+   klik **Yes** (dibutuhkan supaya sensor daya CPU/GPU bisa terbaca penuh).
+4. Kalau muncul **"Windows protected your PC"** (SmartScreen) karena exe-nya
+   belum ditandatangani (code signing berbayar, di luar scope project hobi
+   ini): klik **More info** → **Run anyway**.
+5. Tidak ada window yang terbuka — app langsung muncul sebagai **icon di
+   system tray**. `config.json` dan `power_monitor.db` otomatis dibuat di
+   folder yang sama saat pertama kali jalan.
+
+Baca `BACA-DULU.txt` di dalam zip-nya untuk ringkasan cara pakai.
+
+## Build dari source (untuk development)
 
 1. Pastikan **.NET SDK** terpasang (`dotnet --version` untuk cek).
 2. Buka folder project ini, lalu:
@@ -18,6 +35,20 @@ tambahan — murni baca sensor internal hardware.
    angka bisa muncul 0.
 4. Tidak ada window yang terbuka — app langsung muncul sebagai **icon di
    system tray**.
+
+### Build rilis (self-contained single-file)
+
+Untuk bikin `.exe` portable yang bisa dijalankan di PC lain tanpa .NET SDK
+terpasang (persis yang dipakai untuk paket di halaman Releases):
+
+```
+dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -o dist
+```
+
+Hasilnya satu `PowerMonitorApp.exe` (~70MB, sudah termasuk .NET runtime) di
+folder `dist/`. Setting `SelfContained`/`IncludeNativeLibrariesForSelfExtract`
+sengaja dikondisikan di `.csproj` (`Condition="'$(PublishSingleFile)' == 'true'"`)
+supaya `dotnet build`/`dotnet run` biasa buat development tetap ringan.
 
 ## Cara pakai
 

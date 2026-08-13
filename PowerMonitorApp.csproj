@@ -10,6 +10,23 @@
     <RootNamespace>PowerMonitorApp</RootNamespace>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+
+    <Version>1.0.0</Version>
+    <Product>PC Power Monitor</Product>
+    <AssemblyTitle>PC Power Monitor</AssemblyTitle>
+    <Authors>AS Project</Authors>
+    <Description>Tray app estimasi konsumsi daya PC (CPU + GPU) dan biaya listriknya.</Description>
+  </PropertyGroup>
+
+  <!--
+    Pengaturan di bawah cuma berlaku saat `dotnet publish` (lihat README bagian
+    "Build rilis"), supaya `dotnet build`/`dotnet run` biasa buat development
+    tetap ringan dan tidak framework-dependent-only.
+  -->
+  <PropertyGroup Condition="'$(PublishSingleFile)' == 'true'">
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,7 @@
 # Build output
 bin/
 obj/
+dist/
 
 # Runtime data (generated on first run, not part of source)
 power_monitor.db
