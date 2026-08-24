@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="PC Power Monitor"
-        Height="370" Width="310"
+        Height="430" Width="390"
         WindowStyle="None"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
@@ -14,88 +14,88 @@
             BorderBrush="{StaticResource BorderBrush}"
             BorderThickness="1"
             CornerRadius="14"
-            Padding="18">
+            Padding="22">
         <Border.Effect>
             <DropShadowEffect BlurRadius="28" ShadowDepth="5" Opacity="0.48" Color="#090611"/>
         </Border.Effect>
         <StackPanel>
-            <Grid Margin="0,0,0,14">
+            <Grid Margin="0,0,0,18">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Border Width="30" Height="30" CornerRadius="9" Background="{StaticResource AccentGradientBrush}">
-                    <TextBlock Text="⚡" FontSize="15" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border Width="36" Height="36" CornerRadius="10" Background="{StaticResource AccentGradientBrush}">
+                    <TextBlock Text="⚡" FontSize="18" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="PC Power Monitor" FontWeight="SemiBold" FontSize="14" Foreground="{StaticResource PrimaryTextBrush}"/>
-                    <TextBlock Text="ASProBot Signature" FontSize="9" Foreground="{StaticResource MutedTextBrush}" Margin="0,1,0,0"/>
+                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="PC Power Monitor" FontWeight="SemiBold" FontSize="16" Foreground="{StaticResource PrimaryTextBrush}"/>
+                    <TextBlock Text="ASProBot Signature" FontSize="10" Foreground="{StaticResource MutedTextBrush}" Margin="0,2,0,0"/>
                 </StackPanel>
-                <Border Grid.Column="2" Background="#2522C55E" BorderBrush="#5522C55E" BorderThickness="1" CornerRadius="10" Padding="7,3" VerticalAlignment="Center">
-                    <TextBlock Text="LIVE" FontSize="8" FontWeight="Bold" Foreground="{StaticResource SuccessBrush}"/>
+                <Border Grid.Column="2" Background="#2522C55E" BorderBrush="#5522C55E" BorderThickness="1" CornerRadius="10" Padding="9,4" VerticalAlignment="Center">
+                    <TextBlock Text="LIVE" FontSize="9" FontWeight="Bold" Foreground="{StaticResource SuccessBrush}"/>
                 </Border>
             </Grid>
 
-            <Grid Margin="0,0,0,12">
+            <Grid Margin="0,0,0,16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Style="{StaticResource AsproCard}" Margin="0,0,4,0" Padding="0,10">
+                <Border Grid.Column="0" Style="{StaticResource AsproCard}" Margin="0,0,6,0" Padding="10,16">
                     <StackPanel HorizontalAlignment="Center">
-                        <TextBlock Text="CPU" FontSize="9" Foreground="{StaticResource MutedTextBrush}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="CpuText" Text="0.0 W" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                        <TextBlock Text="CPU" FontSize="10" Foreground="{StaticResource MutedTextBrush}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="CpuText" Text="0.0 W" FontSize="18" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" HorizontalAlignment="Center" Margin="0,7,0,0"/>
                     </StackPanel>
                 </Border>
-                <Border Grid.Column="1" Style="{StaticResource AsproCard}" Margin="4,0" Padding="0,10">
+                <Border Grid.Column="1" Style="{StaticResource AsproCard}" Margin="6,0" Padding="10,16">
                     <StackPanel HorizontalAlignment="Center">
-                        <TextBlock Text="GPU" FontSize="9" Foreground="{StaticResource MutedTextBrush}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="GpuText" Text="0.0 W" FontSize="14" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                        <TextBlock Text="GPU" FontSize="10" Foreground="{StaticResource MutedTextBrush}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="GpuText" Text="0.0 W" FontSize="18" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" HorizontalAlignment="Center" Margin="0,7,0,0"/>
                     </StackPanel>
                 </Border>
-                <Border Grid.Column="2" Style="{StaticResource AsproCard}" Margin="4,0,0,0" Padding="0,10">
+                <Border Grid.Column="2" Style="{StaticResource AsproCard}" Margin="6,0,0,0" Padding="10,16">
                     <StackPanel HorizontalAlignment="Center">
-                        <TextBlock Text="TOTAL" FontSize="9" Foreground="{StaticResource AccentSoftBrush}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="TotalText" Text="0.0 W" FontSize="14" FontWeight="Bold" Foreground="{StaticResource AccentSoftBrush}" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                        <TextBlock Text="TOTAL" FontSize="10" Foreground="{StaticResource AccentSoftBrush}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="TotalText" Text="0.0 W" FontSize="18" FontWeight="Bold" Foreground="{StaticResource AccentSoftBrush}" HorizontalAlignment="Center" Margin="0,7,0,0"/>
                     </StackPanel>
                 </Border>
             </Grid>
 
-            <Border Background="{StaticResource SelectedBrush}" BorderBrush="{StaticResource StrongBorderBrush}" BorderThickness="1" CornerRadius="10" Padding="14,12" Margin="0,0,0,10">
+            <Border Background="{StaticResource SelectedBrush}" BorderBrush="{StaticResource StrongBorderBrush}" BorderThickness="1" CornerRadius="12" Padding="18,16" Margin="0,0,0,14">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="AKUMULASI HARI INI" Foreground="{StaticResource MutedTextBrush}" FontSize="9" FontWeight="SemiBold"/>
-                        <TextBlock x:Name="KwhText" Text="0.0000 kWh" Foreground="{StaticResource PrimaryTextBrush}" FontSize="17" FontWeight="Bold" Margin="0,3,0,0"/>
+                        <TextBlock Text="AKUMULASI HARI INI" Foreground="{StaticResource MutedTextBrush}" FontSize="10" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="KwhText" Text="0.0000 kWh" Foreground="{StaticResource PrimaryTextBrush}" FontSize="20" FontWeight="Bold" Margin="0,5,0,0"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Right">
-                        <TextBlock Text="BIAYA" Foreground="{StaticResource MutedTextBrush}" FontSize="9" FontWeight="SemiBold" HorizontalAlignment="Right"/>
-                        <TextBlock x:Name="CostText" Text="Rp 0" Foreground="{StaticResource AccentSoftBrush}" FontSize="17" FontWeight="Bold" Margin="0,3,0,0" HorizontalAlignment="Right"/>
+                        <TextBlock Text="BIAYA" Foreground="{StaticResource MutedTextBrush}" FontSize="10" FontWeight="SemiBold" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="CostText" Text="Rp 0" Foreground="{StaticResource AccentSoftBrush}" FontSize="20" FontWeight="Bold" Margin="0,5,0,0" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Grid>
             </Border>
 
-            <Grid>
+            <Grid Margin="0,2,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                    <TextBlock x:Name="TariffText" Text="Tarif: Rp 0/kWh" Foreground="{StaticResource MutedTextBrush}" FontSize="10"/>
-                    <TextBlock x:Name="UpdatedText" Text="Update: -" Foreground="{StaticResource DisabledTextBrush}" FontSize="9" Margin="0,2,0,0"/>
+                    <TextBlock x:Name="TariffText" Text="Tarif: Rp 0/kWh" Foreground="{StaticResource MutedTextBrush}" FontSize="11"/>
+                    <TextBlock x:Name="UpdatedText" Text="Update: -" Foreground="{StaticResource DisabledTextBrush}" FontSize="10" Margin="0,3,0,0"/>
                 </StackPanel>
-                <Button Grid.Column="1" x:Name="HistoryButton" Content="Riwayat" Style="{StaticResource AsproGhostButton}" Click="HistoryButton_Click"/>
+                <Button Grid.Column="1" x:Name="HistoryButton" Content="Riwayat" MinWidth="92" Style="{StaticResource AsproGhostButton}" Click="HistoryButton_Click"/>
             </Grid>
 
             <TextBlock x:Name="EstimateNoteText"
                        Text="≈ CPU diestimasi dari Load% x TDP (sensor power tidak terbaca)"
-                       Foreground="{StaticResource WarningBrush}" FontSize="9" TextWrapping="Wrap"
-                       Margin="0,9,0,0" Visibility="Collapsed"/>
+                       Foreground="{StaticResource WarningBrush}" FontSize="10" TextWrapping="Wrap"
+                       Margin="0,12,0,0" Visibility="Collapsed"/>
         </StackPanel>
     </Border>
 </Window>
