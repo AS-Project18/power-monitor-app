@@ -17,10 +17,10 @@ public partial class HistoryWindow : Window
     private const int MonthlyRangeMonths = 6;
 
     private static readonly CultureInfo IdCulture = CultureInfo.GetCultureInfo("id-ID");
-    private static readonly SolidColorBrush ActiveBrush = new(System.Windows.Media.Color.FromRgb(0x4F, 0xC3, 0xF7));
-    private static readonly SolidColorBrush ActiveForeground = new(System.Windows.Media.Color.FromRgb(0x0A, 0x0A, 0x0A));
-    private static readonly SolidColorBrush InactiveBrush = new(System.Windows.Media.Color.FromRgb(0x26, 0x26, 0x26));
-    private static readonly SolidColorBrush InactiveForeground = new(System.Windows.Media.Color.FromRgb(0xE0, 0xE0, 0xE0));
+    private static readonly SolidColorBrush ActiveBrush = new(Color.FromRgb(0x8B, 0x5C, 0xF6));
+    private static readonly SolidColorBrush ActiveForeground = new(Color.FromRgb(0x0E, 0x0B, 0x16));
+    private static readonly SolidColorBrush InactiveBrush = new(Color.FromRgb(0x18, 0x12, 0x26));
+    private static readonly SolidColorBrush InactiveForeground = new(Color.FromRgb(0xF5, 0xF3, 0xFF));
 
     private DatabaseService? _database;
     private CostCalculatorService? _costCalculator;
